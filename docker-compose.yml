@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mydemo:
+    build:
+      context: .
+    image: mydemo
+    working_dir: /home/mydemo/workspaces
+    volumes:
+      - .:/home/mydemo/workspaces
+    shm_size: '256m'
+    user: mydemo
+    command: sleep infinity
+    ports:
+    - "9225:9224"

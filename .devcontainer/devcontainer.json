@@ -1,0 +1,50 @@
+{
+	"name": "mydemo",
+	// "dockerFile": "Dockerfile",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "mydemo",
+	// "service": "tapython",
+	"appPort": 9000,
+	"shutdownAction": "stopCompose",
+	"workspaceFolder": "/home/mydemo/workspaces",
+	"settings": {
+		"python.pythonPath": "/bin/python3",
+		"python.linting.pylintEnabled": true,
+		"python.linting.pylintPath": "/usr/local/bin/pylint",
+		"python.linting.enabled": true,
+		"workbench.colorTheme": "Solarized Dark"
+	},
+	"cucumberautocomplete.syncfeatures": "${workspaceFolder}/framework/features/*.feature",
+	"cucumberautocomplete.strictGherkinCompletion": true,
+	"editor.quickSuggestions": {
+		"comments": false,
+		"strings": true,
+		"other": true
+	},
+	"cucumberautocomplete.steps": [
+
+	],
+	// The optional 'runArgs' property can be used to specify additional runtime arguments.
+	"runArgs": [
+		// Uncomment the line if you will use a ptrace-based debugger like C++, Go, and Rust.
+		// "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
+		// Uncomment the next line to use a non-root user. On Linux, this will prevent
+		// new files getting created as root, but you may need to update the USER_UID
+		// and USER_GID in .devcontainer/Dockerfile to match your user if not 1000.
+		"-u",
+		"mydemo"
+	],
+	// Uncomment the next line if you want to publish any ports.
+	// "appPort": [],
+	// Uncomment the next line if you want to add in default container specific settings.json values
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+	// Add the IDs of any extensions you want installed in the array below.
+	"extensions": [
+		"ms-python.python",
+		"alexkrechik.cucumberautocomplete",
+		"mhutchie.git-graph",
+		"richie5um2.vscode-statusbar-json-path",
+		"shd101wyy.markdown-preview-enhanced"
+	]
+}

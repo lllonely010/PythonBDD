@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "WIP file parknow.FR.discovery",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "args": [
+                "--tags=not (@todo or @known-issue)",
+                "-k",
+                "-w",
+                "--define",
+                "locale=fr-FR",
+                "--define",
+                "product=parknow",
+                "--define",
+                "membershiptype=private_discovery",
+                "${file}"
+            ],
+            "linux": {
+                "program": "/usr/local/bin/behave",
+                "cwd": "${workspaceFolder}/framework"
+            },
+            "env": {
+                "ENVIRONMENT_UNDER_TEST": "sit",
+                "ES_ENABLED": "False",
+                "DOCKER": "True"
+            }
+        }
+    ]
+}
