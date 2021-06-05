@@ -20,30 +20,7 @@ if "ENVIRONMENT_UNDER_TEST" in os.environ:
 log = logging.getLogger()
 log.setLevel(logging.INFO)
 
-
-def get_git_user():
-    proc = subprocess.Popen("git config --list",
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE,
-                            shell=True)
-    std_out, std_err = proc.communicate()
-
-    config_values = {}
-    for value in std_out.decode('utf-8').split("\n"):
-        config_values[value[0:value.find("=")]] = value[value.find("=")+1:]
-
-    if "user.name" in config_values:
-        user = config_values["user.name"]
-    elif "user.email" in config_values:
-        user = config_values["user.email"]
-    else:
-        user = "unknown"
-
-    return user
-
-
 def before_all(context):
-    context.user = get_git_user()
 
     # this need to be extended to pull from environment variable
     context.system_under_test = ENVIRONMENT
@@ -61,44 +38,8 @@ def before_all(context):
     context.locale = "nl-NL",
     context.app_product_type = "parkmobile"
     context.membership_type = "private_transactional"
-
-    if "membershiptype" in context.configuration["environment"]:
-        context.membership_type = context.configuration["environment"]["membershiptype"]
-
-    if "membershiptype" in context.config.userdata:
-        context.membership_type = context.config.userdata["membershiptype"]
-
-    if "MEMBERSHIP_TYPE" in os.environ:
-        context.membership_type = os.environ["MEMBERSHIP_TYPE"]
-
-    if "app_package" in context.configuration["environment"]:
-        context.app_package = context.configuration["environment"]["app_package"]
-
-    if "app_package" in context.config.userdata:
-        context.app_package = context.config.userdata["app_package"]
-
-    if "APP_PACKAGE" in os.environ:
-        context.app_package = os.environ["APP_PACKAGE"]
-    
-    if "app_product_type" in context.configuration["environment"]:
-        context.app_product_type = context.configuration["environment"]["app_product_type"]
-
-    if "app_product_type" in context.config.userdata:
-        context.app_product_type = context.config.userdata["app_product_type"]
-
-    if "APP_PRODUCT_TYPE" in os.environ:
-        context.app_product_type = os.environ["APP_PRODUCT_TYPE"]
-
-    if "locale" in context.configuration["environment"]:
-        context.locale = context.configuration["environment"]["locale"]
-
-    if "locale" in context.config.userdata:
-        context.locale = context.config.userdata["locale"]
-
-
-    context.country = context.locale[-2:]
-
-    context.product = context.config.userdata["product"]
+    context.country = "NL"
+    context.product = "parkmobile"
 
     context.configuration["environment"]["locale"] = context.locale
     context.configuration["environment"]["country"] = context.country

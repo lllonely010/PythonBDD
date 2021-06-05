@@ -28,9 +28,7 @@
             "env": {
                 "ES_ENABLED": "False",
                 "ENVIRONMENT_UNDER_TEST": "preprod",
-                "DOCKER": "True",
-                "SAUCE_USERNAME":"testAutoPM",
-                "SAUCE_ACCESS_KEY":"ed317779-e79f-45f4-892c-e6ea225f0308"
+                "DOCKER": "True"
 
             }
         }

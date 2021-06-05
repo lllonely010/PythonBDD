@@ -1,0 +1,15 @@
+{
+    "environment": {
+      "generic_user": {
+        "email": "generate(email)",
+        "password": "Password123!",
+        "mobilephone": "generate(phonenumber)"
+      },
+      "generic_vehicle": {
+        "vrn": "VRN8907",
+        "country": "NL"
+      },
+      "locale": "nl-NL",
+      "countrycode": "NL"
+    }
+  }
