@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "WIP file parknow.FR.discovery",
+            "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "console": "integratedTerminal",
@@ -14,11 +14,11 @@
                 "-k",
                 "-w",
                 "--define",
-                "locale=fr-FR",
+                "locale=nl-NL",
                 "--define",
-                "product=parknow",
+                "product=parkmobile",
                 "--define",
-                "membershiptype=private_discovery",
+                "membershiptype=private_transactional",
                 "${file}"
             ],
             "linux": {
@@ -26,9 +26,12 @@
                 "cwd": "${workspaceFolder}/framework"
             },
             "env": {
-                "ENVIRONMENT_UNDER_TEST": "sit",
                 "ES_ENABLED": "False",
-                "DOCKER": "True"
+                "ENVIRONMENT_UNDER_TEST": "preprod",
+                "DOCKER": "True",
+                "SAUCE_USERNAME":"testAutoPM",
+                "SAUCE_ACCESS_KEY":"ed317779-e79f-45f4-892c-e6ea225f0308"
+
             }
         }
     ]

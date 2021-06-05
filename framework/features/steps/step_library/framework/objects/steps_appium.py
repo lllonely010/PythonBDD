@@ -1,7 +1,6 @@
 from behave import given, when, step, then  # pylint: disable=no-name-in-module
 from .src.ui import AppiumObject  # pylint: disable=relative-beyond-top-level
 import logging
-from _datetime import datetime
 from ..general.src.helper import check_for_substitute  # pylint: disable=relative-beyond-top-level
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ExpectedConditions
@@ -139,35 +138,6 @@ def scroll_to_top(context, session_name):
     context.test_objects[session_name].sroll_to_top()
     context.lastappiumobjectid = session_name
 
-@when("we increase time in {locator} date picker by {number_of} {hoursorminutes} in the {session_name} object")
-def increase_time(context, locator, number_of, session_name, hoursorminutes):
-    element = check_for_substitute(context, locator)
-    timeunit_number = check_for_substitute(context, number_of)
-    session_name = check_for_substitute(context, session_name)
-    hoursorminutes = check_for_substitute(context, hoursorminutes)
-    driver = context.test_objects[session_name].get_driver()
-    logging.debug(f'Value of appium driver is {driver}')
-    logging.debug(f'Value of element is {element.lstrip("xpath:")}')
-    set_time = None
-    local_timezone = timezone('Europe/Amsterdam')
-    if hoursorminutes == "minutes":
-        set_minutes = int(datetime.now(local_timezone).strftime("%M")) + int(timeunit_number)
-        if set_minutes > 59:
-            set_minutes = set_minutes - 60
-        driver.find_element_by_xpath("//XCUIElementTypePickerWheel[3]").send_keys(set_minutes)
-        if len(str(set_minutes)) == 1:
-            set_minutes = "0" + str(set_minutes)
-        set_time = datetime.now(local_timezone).strftime("%H") + ":" + str(set_minutes) 
-    elif hoursorminutes == "hours":
-        set_hours = int(datetime.now(local_timezone).strftime("%H")) + int(timeunit_number)
-        if set_hours > 24:
-            set_hours = set_hours - 24
-        driver.find_element_by_xpath(
-            "//XCUIElementTypePickerWheel[2]").send_keys(set_hours)
-        if len(str(set_hours)) == 1:
-            set_hours = "0" + str(set_hours)
-        set_time = str(set_hours) + ":" + datetime.now(local_timezone).strftime("%M")
-    context.get_time = set_time
 
 @when("we hide keyboard using appium {session_name}")
 def hide_keyboard(context, session_name):

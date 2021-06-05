@@ -3,7 +3,6 @@ import json
 import logging
 import uuid
 from .src.api import RequestObject # pylint: disable=relative-beyond-top-level
-from .src.zap import run_zap_tests # pylint: disable=relative-beyond-top-level
 from ..general.src.helper import check_for_substitute # pylint: disable=relative-beyond-top-level
 
 
@@ -54,9 +53,6 @@ def step_adjust_proxy(context, session, hostname, port):
     context.test_objects[session_name].adjust_http_proxy(hostname, port)
 
 
-@then("we run zap scan")
-def run_zap(context):
-    run_zap_tests(context)
 
 
 @when("we perform a {method} against {url} using payload of {data} using {session}")

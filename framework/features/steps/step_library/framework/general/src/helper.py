@@ -10,7 +10,7 @@ from dateutil import tz
 from datetime import datetime
 from PIL import Image, ImageChops
 from .jsons import search_json, merge_json, merge_context,get_dotsearch
-from .getters import get_abspath, get_externalconfig, get_length, get_parse_regex, get_readtxtfile, get_readxmlfile, get_simplevalue, get_config, get_context, get_object, get_persona 
+from .getters import get_abspath, get_length, get_parse_regex, get_readtxtfile, get_readxmlfile, get_simplevalue, get_config, get_context, get_object, get_persona 
 from .modifiers import modify_datetimetotimestamp, modify_lowercase, modify_replace, modify_shorten, modify_uppercase, modify_calc, modify_time_format, get_next_month_first_date,modify_min_max_time,modify_character_length,modify_removeAllSpecialCharacters,modify_by_substitute
 from .generate import generate_random_integer, generate
 
@@ -40,7 +40,6 @@ def search_and_load_config():
 
 def check_for_substitute(context, str_in):
     function_names = {
-        'externalconfig': get_externalconfig,
         'config': get_config,
         'context': get_context,
         'object': get_object,

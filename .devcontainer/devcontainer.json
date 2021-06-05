@@ -22,7 +22,17 @@
 		"other": true
 	},
 	"cucumberautocomplete.steps": [
-
+		"${workspaceFolder}/framework/general/generic_helpers.py",
+		"${workspaceFolder}/framework/general/generic_asserts.py",
+		"${workspaceFolder}/framework/general/generic_context.py",
+		"${workspaceFolder}/framework/general/generic_wrappers.py",
+		"${workspaceFolder}/framework/general/src/generate.py",
+		"${workspaceFolder}/framework/general/src/helper.py",
+		"${workspaceFolder}/framework/objects/steps_selenium.py",
+		"${workspaceFolder}/framework/objects/steps_api.py",
+		"${workspaceFolder}/framework/objects/steps_appium.py",
+		"${workspaceFolder}/framework/objects/src/ui.py",
+		"${workspaceFolder}/framework/objects/src/api.py"
 	],
 	// The optional 'runArgs' property can be used to specify additional runtime arguments.
 	"runArgs": [
