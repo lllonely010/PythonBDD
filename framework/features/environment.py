@@ -35,19 +35,6 @@ def before_all(context):
     context.configuration = search_and_load_config()
     context.lastappiumobjectid = None
 
-    context.locale = "nl-NL",
-    context.app_product_type = "parkmobile"
-    context.membership_type = "private_transactional"
-    context.country = "NL"
-    context.product = "parkmobile"
-
-    context.configuration["environment"]["locale"] = context.locale
-    context.configuration["environment"]["country"] = context.country
-    context.configuration["environment"]["product"] = context.product
-
-    log.info(f"setting locale to {context.locale}")
-    log.info(f"setting country to {context.country}")
-    log.info(f"setting product to {context.product}")
     
 def before_feature(context, feature):
     unique_scenarios = []
@@ -88,7 +75,3 @@ def after_scenario(context, scenario):
 def before_step(context, step):
     context.last_screenshot_id = "00000000-0000-0000-00000000000000000"
     context.step_id = str(uuid.uuid4())
-
-    # if step.location.filename == "<string>":
-    #     print(f"- {step.step_type} {step.name}")
-

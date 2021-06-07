@@ -1,6 +1,7 @@
-Feature: Phonixx:api:status
+Feature: Backend Testsuite:api:status
+
     Background:
-        Given we store {"uri": "https://phonixx.preprod.parkmobile.nl/api/status"} in the context
+        Given we store {"uri": "config(environment.mysystem.api)/status"} in the context
         Given we prepare a new api session called test
 
 

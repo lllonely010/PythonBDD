@@ -120,33 +120,6 @@ def convert_utc_local(context,date_converted):
     utc = utc.replace(tzinfo=from_zone)
     return utc.astimezone(to_zone).strftime('%Y-%m-%dT%H:%M:%S')
 
-def print_penguin():
-    print("""
-dHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHb
-HHP%%#%%%%%%%%%%%%%%%%#%%%%%%%#%%VHH
-HH%%%%%%%%%%#%v~~~~~~\%%%#%%%%%%%%HH
-HH%%%%%#%%%%v'        ~~~~\%%%%%#%HH
-HH%%#%%%%%%v'dHHb      a%%%#%%%%%%HH
-HH%%%%%#%%v'dHHHA     :%%%%%%#%%%%HH
-HH%%%#%%%v' VHHHHaadHHb:%#%%%%%%%%HH
-HH%%%%%#v'   `VHHHHHHHHb:%%%%%#%%%HH
-HH%#%%%v'      `VHHHHHHH:%%%#%%#%%HH
-HH%%%%%'        dHHHHHHH:%%#%%%%%%HH
-HH%%#%%        dHHHHHHHH:%%%%%%#%%HH
-HH%%%%%       dHHHHHHHHH:%%#%%%%%%HH
-HH#%%%%       VHHHHHHHHH:%%%%%#%%%HH
-HH%%%%#   b    HHHHHHHHV:%%%#%%%%#HH
-HH%%%%%   Hb   HHHHHHHV'%%%%%%%%%%HH
-HH%%#%%   HH  dHHHHHHV'%%%#%%%%%%%HH
-HH%#%%%   VHbdHHHHHHV'#%%%%%%%%#%%HH
-HHb%%#%    VHHHHHHHV'%%%%%#%%#%%%%HH
-HHHHHHHb    VHHHHHHH:%odHHHHHHbo%dHH
-HHHHHHHHboodboooooodHHHHHHHHHHHHHHHH
-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-VHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHV
-    """)
-
-
 def compare(original, new, diff):
     new = Image.open(f"{os.getcwd()}/results/screenshots/{new}.png")
     original = Image.open(f"{os.getcwd()}/results/screenshots/{original}.png")

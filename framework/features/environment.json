@@ -1,15 +1,19 @@
 {
     "environment": {
-      "generic_user": {
+      "user": {
         "email": "generate(email)",
-        "password": "Password123!",
+        "password": "generate(password)!",
         "mobilephone": "generate(phonenumber)"
       },
-      "generic_vehicle": {
+      "vehicle": {
         "vrn": "VRN8907",
         "country": "NL"
       },
       "locale": "nl-NL",
-      "countrycode": "NL"
-    }
+      "countrycode": "NL",
+      "mysystem": {
+        "api": "https://phonixx.preprod.parkmobile.nl/api"
+  
+      }
   }
+}

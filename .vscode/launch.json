@@ -13,23 +13,11 @@
                 "--tags=not (@todo or @known-issue)",
                 "-k",
                 "-w",
-                "--define",
-                "locale=nl-NL",
-                "--define",
-                "product=parkmobile",
-                "--define",
-                "membershiptype=private_transactional",
                 "${file}"
             ],
             "linux": {
                 "program": "/usr/local/bin/behave",
                 "cwd": "${workspaceFolder}/framework"
-            },
-            "env": {
-                "ES_ENABLED": "False",
-                "ENVIRONMENT_UNDER_TEST": "preprod",
-                "DOCKER": "True"
-
             }
         }
     ]

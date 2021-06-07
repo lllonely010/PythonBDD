@@ -98,27 +98,3 @@ def compare_datetime(context, time, start_time, end_time):
     end_time = datetime.utcfromtimestamp(date_parse(check_for_substitute(context, end_time)).timestamp())
     assert time <= end_time, "time is out of end time limit"
     assert time >= start_time, "time is out of start time limit"
-
-
-@then("assert that I can download and store {file} from {path}")
-def then_assert_that_I_can_download_and_store_file_from_path(context, path):
-    """
-    Assert if the file exists at `path` when I download it
-    """
-    path = check_for_substitute(context, path)
-    os.path.isfile(path)
-
-
-@then("assert that {pathtodownloadedfile} is accessible on the local machine")
-def then_assert_that_pathtodownloadedfile_is_accessible_on_the_local_machine(context, pathtodownloadedfile):
-    """
-    Assert if the downloadedfile or directory at `path` can
-    be accessed by the program using `mode` open flags.
-    """
-
-    pathtodownloadedfile = "/home/desertpenguin/desertpenguin/framework/temp/" + \
-        check_for_substitute(context, pathtodownloadedfile)
-    f = open(pathtodownloadedfile, 'r')
-    f.close()
-
-        
