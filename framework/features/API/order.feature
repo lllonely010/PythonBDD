@@ -20,9 +20,6 @@ Feature: Verify order through API
 
     @api
     @utilities
-    @phonixx.system.medium
-    @phonixx.sit.medium
-    @parknow @de-DE @de-AT @business_pro @business_premium
     Scenario Outline: Business Sticker limit Negative scenarios -- Ordering all stickers at once (Business Pro, Business Premium)
         Given we store {"uri": "config(environment.mysystem.api)/order"} in the context
         Given we prepare a new api session called test
