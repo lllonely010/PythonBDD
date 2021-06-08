@@ -12,7 +12,7 @@
       "locale": "nl-NL",
       "countrycode": "NL",
       "mysystem": {
-        "api": "https://phonixx.preprod.parkmobile.nl/api"
+        "api": "https://mysystem/api"
   
       }
   }

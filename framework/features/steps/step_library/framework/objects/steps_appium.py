@@ -13,9 +13,6 @@ def prepare_new_appium_session(context, session_name, config, driver_provider):
     config = check_for_substitute(context, config)
     driver_provider = check_for_substitute(context, driver_provider)
     context.test_objects[session_name] = AppiumObject(session_name, config, driver_provider)
-    context.execute_steps(f"""
-       When we change environment for parkmobile android execution {session_name} session
-    """)
     context.lastappiumobjectid = session_name
 
 @when("we type into {selector} using appium {session_name} the text {text}")

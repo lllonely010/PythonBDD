@@ -24,8 +24,6 @@ def step_we_perform_a_method_against_url_using_payload_of_data(context, method, 
     url = check_for_substitute(context, url)
     data = check_for_substitute(context, data)
     steps = f"Given we prepare a new api session called {session_name}\n"
-    if "PmAuthenticationToken" in context.context:
-        steps += f'Given we add a {{"PmAuthenticationToken": "context(PmAuthenticationToken)"}} headers to {session_name}\n'
     steps += f"When we perform a {method} against {url} using payload of {data} using {session_name}\n"
     context.context['lastRequestID'] = session_name
     context.execute_steps(steps)
@@ -51,9 +49,6 @@ def step_adjust_proxy(context, session, hostname, port):
     hostname = check_for_substitute(context, hostname)
     port = check_for_substitute(context, port)
     context.test_objects[session_name].adjust_http_proxy(hostname, port)
-
-
-
 
 @when("we perform a {method} against {url} using payload of {data} using {session}")
 def step_we_perform_a_method_against_url_using_payload_of_data_using_session(context, method, url, data, session):
