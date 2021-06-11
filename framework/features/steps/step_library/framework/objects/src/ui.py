@@ -424,21 +424,9 @@ class AppiumObject(Ui):
                 command_executor="http://host.docker.internal:4723/wd/hub",
                 desired_capabilities=self.desired_caps
             )
-        elif self.driver_provider == "sauce_pn_android":
+        elif self.driver_provider == "testobject":
             self.desired_caps['testobject_api_key'] = os.environ["SAUCE_KEY"]
             self.desired_caps['testobject_app_id'] = os.environ["SAUCE_APP_VERSION_KEY_ANDROID"]
-            self.start_sauce_driver()
-        elif self.driver_provider == "sauce_pn_iOS":
-            self.desired_caps['testobject_api_key'] = os.environ["SAUCE_KEY_IOS"]
-            self.desired_caps['testobject_app_id'] = os.environ["SAUCE_APP_VERSION_KEY_IOS"]
-            self.start_sauce_driver()
-        elif self.driver_provider == "sauce_pm_android":
-            self.desired_caps['testobject_api_key'] = os.environ["SAUCE_KEY_ANDROID_PM"]
-            self.desired_caps['testobject_app_id'] = os.environ["SAUCE_APP_VERSION_KEY_ANDROID"]
-            self.start_sauce_driver()
-        elif self.driver_provider == "sauce_pm_iOS":
-            self.desired_caps['testobject_api_key'] = os.environ["SAUCE_KEY_IOS_PM"]
-            self.desired_caps['testobject_app_id'] = os.environ["SAUCE_APP_VERSION_KEY_IOS"]
             self.start_sauce_driver()
         self.driver.implicitly_wait(5)
 
@@ -508,7 +496,7 @@ class SeleniumObject(Ui):
             chrome_options.add_argument("--remote-debugging-port=9222")
             chrome_options.add_argument("--remote-debugging-address=0.0.0.0")
 
-            prefs = {'download.default_directory': "/home/desertpenguin/desertpenguin/framework/temp/",
+            prefs = {'download.default_directory': "/home/mydemo/framework/temp/",
                      'download.prompt_for_download': False,
                      'download.directory_upgrade': True,
                      'safebrowsing.enabled': False,
@@ -519,7 +507,7 @@ class SeleniumObject(Ui):
                 "/usr/local/bin/chromedriver", chrome_options=chrome_options)
             self.driver.set_window_size(1680, 1773)
             self.enable_download_in_headless_chrome(
-                self.driver, "/home/desertpenguin/desertpenguin/framework/temp/")
+                self.driver, "/home/mydemo/framework/temp/")
             self.driver.implicitly_wait(15)
         if self.browser_type == "firefox-headless":
             firefox_options = FirefoxOptions()
